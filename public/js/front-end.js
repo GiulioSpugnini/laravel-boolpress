@@ -2004,6 +2004,15 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         console.log("chiamata terminata");
       });
+    },
+    dateTime: function dateTime(post) {
+      var postDate = new Date(post.updated_at);
+      var days = postDate.getDate();
+      var months = postDate.getMonth() + 1;
+      var year = postDate.getFullYear();
+      if (days < 10) days = "0" + days;
+      if (months < 10) months = "0" + months;
+      return "".concat(days, "/").concat(months, "/").concat(year);
     }
   },
   mounted: function mounted() {
@@ -37656,39 +37665,33 @@ var render = function () {
     "section",
     _vm._l(_vm.posts, function (post) {
       return _c("div", { key: post.id }, [
-        _c(
-          "div",
-          { staticClass: "card mb-3", staticStyle: { "max-width": "540px" } },
-          [
-            _c("div", { staticClass: "row g-0" }, [
-              _c("div", { staticClass: "col-md-4" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-8" }, [
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v(_vm._s(post.title)),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
+        _c("div", { staticClass: "card mb-3 mt-2" }, [
+          _c("div", { staticClass: "row g-0" }, [
+            _c("div", { staticClass: "col-md-4" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-8" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(post.title)),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _vm._v(
+                    "\n              " + _vm._s(post.content) + "\n            "
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text" }, [
+                  _c("small", { staticClass: "text-muted" }, [
                     _vm._v(
-                      "\n              " +
-                        _vm._s(post.content) +
-                        "\n            "
+                      _vm._s(post.author) + " " + _vm._s(_vm.dateTime(post))
                     ),
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "card-text" }, [
-                    _c("small", { staticClass: "text-muted" }, [
-                      _vm._v(
-                        _vm._s(post.author.name) + _vm._s(post.updated_at)
-                      ),
-                    ]),
                   ]),
                 ]),
               ]),
             ]),
-          ]
-        ),
+          ]),
+        ]),
       ])
     }),
     0

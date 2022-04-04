@@ -1,7 +1,7 @@
 <template>
   <section>
     <div v-for="post in posts" :key="post.id">
-      <div class="card mb-3" style="max-width: 540px">
+      <div class="card mb-3 mt-2">
         <div class="row g-0">
           <div class="col-md-4">
             <!-- <img src="..." class="img-fluid rounded-start" alt="..." /> -->
@@ -14,7 +14,7 @@
               </p>
               <p class="card-text">
                 <small class="text-muted"
-                  >{{ post.author.name }}{{ post.updated_at }}</small
+                  >{{ post.author }} {{ dateTime(post) }}</small
                 >
               </p>
             </div>
@@ -47,7 +47,17 @@ export default {
           console.log("chiamata terminata");
         });
     },
+    dateTime(post) {
+      const postDate = new Date(post.updated_at);
+      let days = postDate.getDate();
+      let months = postDate.getMonth() + 1;
+      const year = postDate.getFullYear();
+      if (days < 10) days = "0" + days;
+      if (months < 10) months = "0" + months;
+      return `${days}/${months}/${year}`;
+    },
   },
+
   mounted() {
     this.getPosts();
   },

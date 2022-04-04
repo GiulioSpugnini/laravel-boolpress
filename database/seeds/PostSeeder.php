@@ -23,7 +23,7 @@ class PostSeeder extends Seeder
         // $tags = Tag::pluck('id')->toArray();
         for ($i = 0; $i < 20; $i++) {
             $post = new Post();
-            $post->author = new User();
+            $post->author = User::first()->name;
             $post->category_id = Arr::random($category_ids);
             $post->title = $faker->text(50);
             $post->content = $faker->paragraph(2, false);
