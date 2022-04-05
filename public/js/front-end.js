@@ -2156,6 +2156,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -6638,7 +6640,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#loader[data-v-e79ec684] {\n  position: fixed 0 0 0 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n}\n#loader .spinner-border[data-v-e79ec684] {\n  width: 80px;\n  height: 80px;\n}", ""]);
+exports.push([module.i, "#loader[data-v-e79ec684] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n}\n#loader .spinner-border[data-v-e79ec684] {\n  width: 80px;\n  height: 80px;\n}", ""]);
 
 // exports
 
@@ -38800,7 +38802,27 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "col-md-8" }, [
                 _c("div", { staticClass: "card-body" }, [
-                  _vm._m(0, true),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "d-flex justify-content-end align-items-center",
+                    },
+                    [
+                      _c(
+                        "span",
+                        { staticClass: "badge-info p-2" },
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { role: "button", to: "/HomePage" } },
+                            [_vm._v("Vedi")]
+                          ),
+                        ],
+                        1
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("h5", { staticClass: "card-title" }, [
                     _vm._v(_vm._s(post.title)),
@@ -38883,22 +38905,7 @@ var render = function () {
     2
   )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex justify-content-end align-items-center" },
-      [
-        _c("span", { staticClass: "badge-info p-2" }, [
-          _c("a", { attrs: { role: "button", href: "" } }, [_vm._v("Vedi")]),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

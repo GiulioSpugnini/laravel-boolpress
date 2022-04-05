@@ -18,7 +18,9 @@
             <div class="card-body">
               <div class="d-flex justify-content-end align-items-center">
                 <span class="badge-info p-2"
-                  ><a role="button" href="">Vedi</a></span
+                  ><router-link role="button" to="/HomePage"
+                    >Vedi</router-link
+                  ></span
                 >
               </div>
               <h5 class="card-title">{{ post.title }}</h5>
