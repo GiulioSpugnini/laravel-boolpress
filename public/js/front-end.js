@@ -1986,6 +1986,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Card",
   data: function data() {
@@ -37689,6 +37711,48 @@ var render = function () {
                   ]),
                 ]),
               ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "\n              card-footer\n              d-flex\n              justify-content-between\n              align-items-center\n            ",
+                },
+                [
+                  _c(
+                    "span",
+                    { class: "badge badge-pill badge-" + post.category.color },
+                    [
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(post.category.label) +
+                          "\n            "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._l(post.tags, function (tag) {
+                    return _c(
+                      "span",
+                      {
+                        key: tag.id,
+                        staticClass: "badge",
+                        style: "background-color:" + tag.color,
+                      },
+                      [
+                        _vm._v(
+                          "\n              " +
+                            _vm._s(tag.label) +
+                            "\n            "
+                        ),
+                      ]
+                    )
+                  }),
+                ],
+                2
+              ),
             ]),
           ]),
         ]),

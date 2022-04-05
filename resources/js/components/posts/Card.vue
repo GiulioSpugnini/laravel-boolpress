@@ -19,6 +19,28 @@
               </p>
             </div>
           </div>
+          <div class="col-12">
+            <div
+              class="
+                card-footer
+                d-flex
+                justify-content-between
+                align-items-center
+              "
+            >
+              <span :class="`badge badge-pill badge-${post.category.color}`">
+                {{ post.category.label }}
+              </span>
+              <span
+                v-for="tag in post.tags"
+                :key="tag.id"
+                class="badge"
+                :style="`background-color:${tag.color}`"
+              >
+                {{ tag.label }}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
