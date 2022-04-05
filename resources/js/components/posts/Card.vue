@@ -1,7 +1,9 @@
 <template>
   <section>
     <Loader v-if="isLoading" />
-
+    <div class="d-flex justify-content-end align-items-center mt-3">
+      <Pagination :pagination="pagination" @on-page-change="getPosts" />
+    </div>
     <div v-for="post in posts" :key="post.id">
       <div class="card mb-3 mt-2">
         <div class="row g-0">
@@ -57,28 +59,39 @@
         </div>
       </div>
     </div>
+    <Pagination :pagination="pagination" @on-page-change="getPosts" />
   </section>
 </template>
 
 <script>
 import Loader from "../Loader.vue";
+import Pagination from "../posts/Pagination.vue";
 export default {
   name: "Card",
   data() {
     return {
       posts: [],
       isLoading: true,
+      pagination: {},
     };
   },
   components: {
     Loader,
+    Pagination,
   },
   methods: {
-    getPosts() {
+    getPosts(page = 1) {
+      this.isLoading = true;
       axios
-        .get("http://localhost:8000/api/posts")
+        .get("http://localhost:8000/api/posts?page=" + page)
         .then((res) => {
-          this.posts = res.data;
+          const { data, current_page, last_page } = res.data;
+
+          this.posts = data;
+          this.pagination = {
+            currentPage: current_page,
+            lastPage: last_page,
+          };
         })
         .catch((err) => {
           console.log(err);
