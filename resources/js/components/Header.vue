@@ -16,9 +16,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav d-flex justify-content-start align-items-center">
           <li class="nav-item">
-            <router-link clrouter-linkss="nav-link" to="/"
-              >Home <span class="sr-only">(current)</span>
-            </router-link>
+            <router-link class="nav-link" to="/">Home </router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/contacts">Contacts</router-link>

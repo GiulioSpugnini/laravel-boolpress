@@ -3,20 +3,20 @@
     <Header />
     <main class="container">
       <router-view> </router-view>
-      <!-- <Card /> -->
+      <!-- <PostList /> -->
     </main>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
-import Card from "./posts/Card.vue";
+import PostList from "./posts/PostList.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    Card,
+    PostList,
   },
   data() {
     return {
