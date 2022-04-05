@@ -1,5 +1,7 @@
 <template>
   <section>
+    <Loader v-if="isLoading" />
+
     <div v-for="post in posts" :key="post.id">
       <div class="card mb-3 mt-2">
         <div class="row g-0">
@@ -12,6 +14,11 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
+              <div class="d-flex justify-content-end align-items-center">
+                <span class="badge-info p-2"
+                  ><a role="button" href="">Vedi</a></span
+                >
+              </div>
               <h5 class="card-title">{{ post.title }}</h5>
               <p class="card-text">
                 {{ post.content }}
@@ -54,12 +61,17 @@
 </template>
 
 <script>
+import Loader from "../Loader.vue";
 export default {
   name: "Card",
   data() {
     return {
       posts: [],
+      isLoading: true,
     };
+  },
+  components: {
+    Loader,
   },
   methods: {
     getPosts() {
@@ -72,7 +84,7 @@ export default {
           console.log(err);
         })
         .then(() => {
-          console.log("chiamata terminata");
+          this.isLoading = false;
         });
     },
     dateTime(post) {
