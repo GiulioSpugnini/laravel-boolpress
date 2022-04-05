@@ -2008,6 +2008,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Card",
   data: function data() {
@@ -37689,7 +37695,12 @@ var render = function () {
       return _c("div", { key: post.id }, [
         _c("div", { staticClass: "card mb-3 mt-2" }, [
           _c("div", { staticClass: "row g-0" }, [
-            _c("div", { staticClass: "col-md-4" }),
+            _c("div", { staticClass: "col-md-4" }, [
+              _c("img", {
+                staticClass: "img-fluid rounded-start m-1",
+                attrs: { src: post.image, alt: "img" },
+              }),
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-8" }, [
               _c("div", { staticClass: "card-body" }, [
@@ -37706,7 +37717,7 @@ var render = function () {
                 _c("p", { staticClass: "card-text" }, [
                   _c("small", { staticClass: "text-muted" }, [
                     _vm._v(
-                      _vm._s(post.author) + " " + _vm._s(_vm.dateTime(post))
+                      _vm._s(post.author) + " - " + _vm._s(_vm.dateTime(post))
                     ),
                   ]),
                 ]),
@@ -37733,25 +37744,28 @@ var render = function () {
                     ]
                   ),
                   _vm._v(" "),
-                  _vm._l(post.tags, function (tag) {
-                    return _c(
-                      "span",
-                      {
-                        key: tag.id,
-                        staticClass: "badge",
-                        style: "background-color:" + tag.color,
-                      },
-                      [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(tag.label) +
-                            "\n            "
-                        ),
-                      ]
-                    )
-                  }),
-                ],
-                2
+                  _c(
+                    "div",
+                    _vm._l(post.tags, function (tag) {
+                      return _c(
+                        "span",
+                        {
+                          key: tag.id,
+                          staticClass: "badge mr-2",
+                          style: "background-color:" + tag.color,
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(tag.label) +
+                              "\n              "
+                          ),
+                        ]
+                      )
+                    }),
+                    0
+                  ),
+                ]
               ),
             ]),
           ]),

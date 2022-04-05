@@ -4,7 +4,11 @@
       <div class="card mb-3 mt-2">
         <div class="row g-0">
           <div class="col-md-4">
-            <!-- <img src="..." class="img-fluid rounded-start" alt="..." /> -->
+            <img
+              :src="post.image"
+              class="img-fluid rounded-start m-1"
+              alt="img"
+            />
           </div>
           <div class="col-md-8">
             <div class="card-body">
@@ -14,7 +18,7 @@
               </p>
               <p class="card-text">
                 <small class="text-muted"
-                  >{{ post.author }} {{ dateTime(post) }}</small
+                  >{{ post.author }} - {{ dateTime(post) }}</small
                 >
               </p>
             </div>
@@ -31,14 +35,16 @@
               <span :class="`badge badge-pill badge-${post.category.color}`">
                 {{ post.category.label }}
               </span>
-              <span
-                v-for="tag in post.tags"
-                :key="tag.id"
-                class="badge"
-                :style="`background-color:${tag.color}`"
-              >
-                {{ tag.label }}
-              </span>
+              <div>
+                <span
+                  v-for="tag in post.tags"
+                  :key="tag.id"
+                  class="badge mr-2"
+                  :style="`background-color:${tag.color}`"
+                >
+                  {{ tag.label }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
