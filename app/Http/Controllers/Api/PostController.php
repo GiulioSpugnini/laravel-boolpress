@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'DESC')->with('category', 'tags')->limit(10)->get();
+        $posts = Post::orderBy('updated_at', 'DESC')->with('category', 'tags')->paginate(5);
         return response()->json($posts);
     }
 
@@ -38,7 +38,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::with('category', 'tags')->find($id);
+        if (!$post) return response('Post non trovato', 404);
+        return response()->json($post);
     }
 
     /**

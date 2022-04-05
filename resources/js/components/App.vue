@@ -2,7 +2,8 @@
   <div class="container">
     <Header />
     <main>
-      <Card />
+      <router-view> </router-view>
+      <!-- <Card /> -->
     </main>
   </div>
 </template>
@@ -16,6 +17,11 @@ export default {
   components: {
     Header,
     Card,
+  },
+  data() {
+    return {
+      isLoading: false,
+    };
   },
 };
 </script>
