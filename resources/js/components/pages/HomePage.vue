@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Card />
+    <PostList />
   </div>
 </template>
 
 <script>
-import Card from "../posts/Card.vue";
+import PostList from "../posts/PostList.vue";
 export default {
   name: "HomePage",
   components: {
-    Card,
+    PostList,
   },
 };
 </script>
