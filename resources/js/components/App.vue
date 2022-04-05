@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <Header />
-    <main>
+    <main class="container">
       <router-view> </router-view>
       <!-- <Card /> -->
     </main>

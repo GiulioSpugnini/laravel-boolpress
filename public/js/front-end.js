@@ -1950,6 +1950,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header"
 });
@@ -2035,6 +2062,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -38462,8 +38492,11 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
-    [_c("Header"), _vm._v(" "), _c("main", [_c("router-view")], 1)],
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("main", { staticClass: "container" }, [_c("router-view")], 1),
+    ],
     1
   )
 }
@@ -38489,9 +38522,92 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card-header" }, [_vm._v("Benvenuti")])
+  return _c("header", [
+    _c(
+      "nav",
+      { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" },
+      [
+        _c("router-link", { staticClass: "navbar-brand", attrs: { to: "/" } }, [
+          _vm._v("Boolpress"),
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "collapse navbar-collapse",
+            attrs: { id: "navbarNav" },
+          },
+          [
+            _c(
+              "ul",
+              {
+                staticClass:
+                  "navbar-nav d-flex justify-content-start align-items-center",
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { "clrouter-linkss": "nav-link", to: "/" } },
+                      [
+                        _vm._v("Home "),
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("(current)"),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/contacts" } },
+                      [_vm._v("Contacts")]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]
+        ),
+      ],
+      1
+    ),
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarNav",
+          "aria-controls": "navbarNav",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+        },
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -38608,23 +38724,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "section",
+    {
+      staticClass: "d-flex justify-content-center align-items-center",
+      attrs: { id: "not-found" },
+    },
+    [
+      _c("h3", { staticClass: "mt-5" }, [_vm._v("404 | Not Found")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary mt-5 ml-2",
+          on: {
+            click: function ($event) {
+              return _vm.$router.back()
+            },
+          },
+        },
+        [_vm._v("\n    Indietro\n  ")]
+      ),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass: "d-flex justify-content-center align-items-center",
-        attrs: { id: "not-found" },
-      },
-      [_c("h3", { staticClass: "mt-5" }, [_vm._v("404 | Not Found")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
