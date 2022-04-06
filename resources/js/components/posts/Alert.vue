@@ -1,5 +1,5 @@
 <template>
-  <div :class="`alert alert-${type}||'info`" role="alert">
+  <div :class="`alert alert-${type}` || 'info'" role="alert">
     {{ message }}
   </div>
 </template>
