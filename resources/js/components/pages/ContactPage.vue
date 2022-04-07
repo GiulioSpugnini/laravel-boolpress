@@ -37,7 +37,9 @@
           ></textarea>
         </div>
         <div class="d-flex justify-content-end align-items-center">
-          <button class="btn btn-primary" @click="sendForm">Invia</button>
+          <button type="button" class="btn btn-primary" @click="sendForm">
+            Invia
+          </button>
         </div>
       </form>
     </div>
