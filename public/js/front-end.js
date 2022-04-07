@@ -2095,7 +2095,8 @@ __webpack_require__.r(__webpack_exports__);
       this.alertMessage = "";
       if (!this.form.email.trim()) errors.email = "La mail è obbligatoria";
       if (!this.form.message.trim()) errors.message = "Il testo del messaggio è obbligatorio";
-      if (this.form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.email = "La mail non è valida";
+      if (!this.form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.email = "La mail non è valida";
+      this.errors = errors;
 
       if (!this.hasErrors) {
         this.isloading = true;
@@ -38884,7 +38885,9 @@ var render = function () {
                       },
                     },
                     [
-                      _c("div", [_vm._v(_vm._s(_vm.alertMessage))]),
+                      _vm.alertMessage
+                        ? _c("div", [_vm._v(_vm._s(_vm.alertMessage))])
+                        : _vm._e(),
                       _vm._v(" "),
                       _vm.hasErrors
                         ? _c(

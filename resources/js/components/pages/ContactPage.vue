@@ -8,7 +8,7 @@
         :type="hasErrors ? 'danger' : 'success'"
         :message="alertMessage"
       >
-        <div>{{ alertMessage }}</div>
+        <div v-if="alertMessage">{{ alertMessage }}</div>
         <ul v-if="hasErrors">
           <li v-for="(error, key) in errors" :key="key">{{ error }}</li>
         </ul>
@@ -78,8 +78,9 @@ export default {
       if (!this.form.email.trim()) errors.email = "La mail è obbligatoria";
       if (!this.form.message.trim())
         errors.message = "Il testo del messaggio è obbligatorio";
-      if (this.form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
+      if (!this.form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
         errors.email = "La mail non è valida";
+      this.errors = errors;
       if (!this.hasErrors) {
         this.isloading = true;
         axios
