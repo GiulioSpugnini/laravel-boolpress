@@ -2055,6 +2055,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2070,7 +2076,7 @@ __webpack_require__.r(__webpack_exports__);
         message: ""
       },
       errors: {},
-      alertMessage: "",
+      alertMessage: null,
       isLoading: false
     };
   },
@@ -2084,21 +2090,25 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var errors = {};
+      this.alertMessage = "";
       if (!this.form.email.trim()) errors.email = "La mail è obbligatoria";
-      if (!this.form.message.trim()) errors.message = "La mail è obbligatoria";
+      if (!this.form.message.trim()) errors.message = "Il testo del messaggio è obbligatorio";
       if (this.form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) errors.email = "La mail non è valida";
-      this.isloading = true;
-      axios.post("http://localhost:8000/api/messages", this.form).then(function (res) {
-        _this.form.email = "";
-        _this.form.message = "";
-        _this.alertMessage = "Messaggio inviato con successo";
-      })["catch"](function (err) {
-        _this.errors = {
-          error: "Si è verificato un errore"
-        };
-      }).then(function () {
-        _this.isloading = false;
-      });
+
+      if (!this.hasErrors) {
+        this.isloading = true;
+        axios.post("http://localhost:8000/api/messages", this.form).then(function () {
+          _this.form.email = "";
+          _this.form.message = "";
+          _this.alertMessage = "Messaggio inviato con successo";
+        })["catch"](function () {
+          _this.errors = {
+            error: "Si è verificato un errore"
+          };
+        }).then(function () {
+          _this.isloading = false;
+        });
+      }
     }
   }
 });
@@ -2220,6 +2230,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38862,21 +38873,30 @@ var render = function () {
             "div",
             [
               _vm.hasErrors || _vm.alertMessage
-                ? _c("Alert", { attrs: { type: "success" } }, [
-                    _c("div", [_vm._v(_vm._s(_vm.alertMessage))]),
-                    _vm._v(" "),
-                    _vm.hasErrors
-                      ? _c(
-                          "ul",
-                          _vm._l(_vm.errors, function (error, key) {
-                            return _c("li", { key: key }, [
-                              _vm._v(_vm._s(error)),
-                            ])
-                          }),
-                          0
-                        )
-                      : _vm._e(),
-                  ])
+                ? _c(
+                    "Alert",
+                    {
+                      attrs: {
+                        type: _vm.hasErrors ? "danger" : "success",
+                        message: _vm.alertMessage,
+                      },
+                    },
+                    [
+                      _c("div", [_vm._v(_vm._s(_vm.alertMessage))]),
+                      _vm._v(" "),
+                      _vm.hasErrors
+                        ? _c(
+                            "ul",
+                            _vm._l(_vm.errors, function (error, key) {
+                              return _c("li", { key: key }, [
+                                _vm._v(_vm._s(error)),
+                              ])
+                            }),
+                            0
+                          )
+                        : _vm._e(),
+                    ]
+                  )
                 : _vm._e(),
               _vm._v(" "),
               _c("form", [
@@ -38893,6 +38913,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
+                    class: { "is-invalid": _vm.errors.email },
                     attrs: { type: "email", id: "email" },
                     domProps: { value: _vm.form.email },
                     on: {
@@ -38925,6 +38946,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "form-control",
+                    class: { "is-invalid": _vm.errors.message },
                     attrs: { id: "message", rows: "10" },
                     domProps: { value: _vm.form.message },
                     on: {
@@ -39091,7 +39113,8 @@ var render = function () {
   return _c(
     "div",
     { class: "alert alert-" + _vm.type || false, attrs: { role: "alert" } },
-    [_vm._v("\n  " + _vm._s(_vm.message) + "\n")]
+    [_vm._t("default"), _vm._v("\n  " + _vm._s(_vm.message) + "\n")],
+    2
   )
 }
 var staticRenderFns = []
